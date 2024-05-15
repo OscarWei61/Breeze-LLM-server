@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from server import router as server_router
+from Embedding import chromaDB_initialize
 import uvicorn
 
 # Import the FastAPI framework
@@ -23,7 +24,7 @@ if __name__ == "__main__":
     host = "0.0.0.0"
     port = int(5100)
     process_count = int(3)
-
+    chromaDB_initialize()
     # Start the server with specified host, port, and process count
     print(
         f"Server is running on {host}:{port} and open {process_count} processes")
